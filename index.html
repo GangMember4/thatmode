@@ -3,40 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>$MODE</title>
 
 <style>
+
 body{
 margin:0;
 background:#000;
 color:white;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 text-align:center;
 }
 
+/* HERO */
+
 .hero{
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
-font-weight:900;
-background:linear-gradient(to bottom,#000000, #111111);
+height:85vh;
+background-image:url('banner.png');
+background-size:cover;
+background-position:center;
 }
 
+/* TOKEN BLOCK */
+
 .token{
-padding:60px 20px;
+padding:70px 20px;
 border-top:1px solid #222;
 }
 
+/* GLOW EFFECT */
+
 .ticker{
-font-size:72px;
-color:#9eff00;
+font-size:80px;
 font-weight:900;
+color:#9eff00;
+
+text-shadow:
+0 0 10px #9eff00,
+0 0 20px #9eff00,
+0 0 40px #7cff00,
+0 0 80px #4cff00;
 }
 
+/* ANIMATION */
+
+.ticker{
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* CONTRACT */
+
 .contract{
-margin-top:20px;
+margin-top:25px;
 background:#111;
 padding:18px;
 border-radius:10px;
@@ -44,7 +72,10 @@ word-break:break-all;
 max-width:700px;
 margin-left:auto;
 margin-right:auto;
+font-family:monospace;
 }
+
+/* BUTTON */
 
 button{
 margin-top:25px;
@@ -54,19 +85,33 @@ font-size:16px;
 cursor:pointer;
 border-radius:8px;
 border:none;
+background:#9eff00;
+color:#000;
 }
 
 button:hover{
 opacity:0.9;
 }
+
+/* X BUTTON */
+
+.xbtn{
+display:inline-block;
+margin-top:20px;
+padding:12px 26px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-It's time to tap into that mode.
-</div>
+<div class="hero"></div>
 
 <div class="token">
 
@@ -78,14 +123,24 @@ PASTE_YOUR_TOKEN_ADDRESS_HERE
 
 <button onclick="copyAddress()">Copy Address</button>
 
+<br>
+
+<a class="xbtn"
+href="https://x.com/i/communities/2032544448635174986"
+target="_blank">
+Join Community on X
+</a>
+
 </div>
 
 <script>
+
 function copyAddress(){
-const text = document.getElementById("contract").innerText;
+const text=document.getElementById("contract").innerText;
 navigator.clipboard.writeText(text);
-alert("Address copied!");
+alert("Address copied");
 }
+
 </script>
 
 </body>
